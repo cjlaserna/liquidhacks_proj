@@ -1,15 +1,20 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { supabase } from "../supabase/supabaseClient";
 
 export default function NavigationBar() {
+  const logOut = async () => await supabase.auth.signOut();
   return (
     <Navbar bg="primary" expand="lg">
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+          <Nav>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -23,7 +28,19 @@ export default function NavigationBar() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-        </Navbar.Collapse>
+        </Navbar.Collapse>{" "}
+        <Nav className="mr-auto">
+          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/login">
+              Login
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/register">
+              Register
+            </NavDropdown.Item>
+
+            <NavDropdown.Item onClick={() => logOut()}>Logout</NavDropdown.Item>
+          </NavDropdown>{" "}
+        </Nav>
       </Container>
     </Navbar>
   );
