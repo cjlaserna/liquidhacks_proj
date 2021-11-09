@@ -1,0 +1,24 @@
+.forum__container {
+  width: 100%;
+}
+
+.forum--bar {
+  width: 100%;
+  height: 48px;
+  background-color: white;
+}
+
+.forum--banner {
+  background-image: url("./Forum_Banner.png");
+  width: 100%;
+  height: 347px;
+  color: white;
+}
+
+.banner--logo {
+  background-image: url("./logo.png");
+  width: auto;
+  height: 193px;
+  border: red;
+  background-repeat: no-repeat;
+}
