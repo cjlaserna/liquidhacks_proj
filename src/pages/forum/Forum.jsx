@@ -1,4 +1,4 @@
-import { Image } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import "./forum.css";
 import Logo from "./logo.png";
 const Forum = () => {
@@ -21,6 +21,14 @@ const Forum = () => {
           </p>
         </article>
       </section>
+      <Row as="section" className="forum__content">
+        <Col as="article" className="p-4  forum__sidebar " sm={4}>
+          sm=8
+        </Col>
+        <Col as="article" className="p-4 " sm={8}>
+          sm=4
+        </Col>
+      </Row>
     </main>
   );
 };

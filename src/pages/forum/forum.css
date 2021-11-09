@@ -1,5 +1,5 @@
 .forum__container {
-  width: 100%;
+  width: 100vw;
 }
 
 .forum--bar {
@@ -21,4 +21,9 @@
   height: 193px;
   border: red;
   background-repeat: no-repeat;
+}
+
+.forum__sidebar {
+  background-color: var(--bs-primary);
+  height: 300px;
 }
