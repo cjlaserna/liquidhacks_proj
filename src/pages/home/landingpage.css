@@ -1,6 +1,204 @@
+/* fix overflow */
+.row {
+  --bs-gutter-x: 0 !important;
+}
+
+/* hero styling */
 .hero--container {
-  background-image: url("./img/Hero.png");
+  background-image: url("../../assets/Hero.png");
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background-size: cover;
+  background-position: center;
+}
+
+h1.hero__heading {
+  margin-top: 15%;
+}
+
+.hero--container .desc {
+  width: 75%;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* card styling */
+.content--card {
+  margin-top: 5rem;
+}
+.content--card div {
+  margin: 1rem;
+}
+.content--card div.preview {
+  background-image: url("../../assets/previewimage.jpeg");
+  background-position: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+/* courses */
+.container--full  {
+  background: linear-gradient(
+      178.4deg,
+      rgba(44, 62, 80, 0.52) -11.19%,
+      #10161c 99.99%
+    ),
+    url("../../assets/tlpattern.png");
+  background-repeat: repeat;
+  background-size: cover;
+
+  color: #fff;
+
+  padding: 2rem;
+  margin-top: 100px;
+}
+
+.courses--container h1 {
+  text-align: center;
+}
+
+.courses--container .col {
+  display: flex;
+  justify-content: center;
+}
+.courses--container .card {
+  margin: 1rem;
+  width: 70%;
+
+  background: transparent;
+  border: 0;
+}
+
+.courses--container img{
+  height: 300px;
+  object-fit: cover;
+}
+
+.courses--container .card-img-overlay {
+  vertical-align: bottom;
+}
+
+.courses--container .container {
+  position: relative;
+}
+
+.courses--container .card-title{
+  margin-bottom: 0;
+}
+
+/* citations */
+.courses--container span.citation  {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+span.citation a{
+  color: #808080 !important;
+}
+
+/* carousel */
+.carousel-control-prev, .carousel-control-next{
+  bottom: 10% !important;
+
+  position: absolute;
+  width: 0;
+}
+
+.courses--container .carousel-control-prev{
+  justify-content: flex-start ;
+}
+
+.courses--container .carousel-control-next{
+  justify-content: flex-end ;
+}
+
+.courses--container .carousel-indicators{
+  display: none;
+}
+
+/* price section */
+#price{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+#price span:first-of-type{
+  font-size: 5em;
+  display: inline;
+}
+#price span:nth-child(2){
+  font-size: 3em;
+  display: inline;
+}
+
+.price--container .container{
+  margin-top: 100px;
+
+  padding-left: 15rem;
+  padding-right: 15rem;  
+}
+.price--container .container .row .col{
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+
+  padding: 1rem;
+}
+
+.price--container .container .row .col p{
+  margin: 0;
+}
+
+.price--container .container .row .col:first-of-type{
+  width: 50%;
+}
+
+.price--container .btn{
+  float: right;
+}
+
+/* mentors section */
+.mentors--container .card{
+  width: 75%;
+}
+
+
+.mentors--container .col .card, .mentors--container .col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  border-color: transparent;
+}
+.mentors--container .col .card-img-top{
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.mentors--container .col{
+  margin: 1rem;
+}
+
+/* contact section */
+.contact--container .preview{
+  background-image: url("../../assets/simplebg.jpg");
+
+  width:100%;
+  height: 100%;
+}
+
+.contact--container .row{
+  margin: 1rem;
+}
+
+.contact--container .col{
+  margin: 3rem;
+}
+
+.contact--container .btn{
+  float: right;
 }
