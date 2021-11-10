@@ -1,5 +1,5 @@
 /* font imports */
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap');
 @font-face {
     font-family: 'Parkson';
     src: url('./assets/ParksonDemiBold.ttf')  format('truetype'); /* Safari, Android, iOS */
@@ -16,11 +16,21 @@
 
     color: #fff;
 }
-.hero__desc{
+.desc{
     font-family: Roboto;
-    font-weight: 500;
     font-size: 1.2rem;
-
-    color: #fff;
 }
 
+.heading{
+    font-family: Parkson;
+    font-size: 8rem;
+}
+
+.card{
+    background: transparent;
+}
+
+footer{
+    background: #2C3E50;
+    height: 80px;
+}
