@@ -3,8 +3,10 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabase/supabaseClient";
 
-export default function NavigationBar() {
+export default function NavigationBar({ profile }) {
   const logOut = async () => await supabase.auth.signOut();
+  const name = profile ? profile.username : "Guest";
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
@@ -27,15 +29,23 @@ export default function NavigationBar() {
           <Nav>
             <NavDropdown title="Accounts" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/login">
-                Login
+                Hello {name}
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/register">
-                Register
-              </NavDropdown.Item>
-
-              <NavDropdown.Item onClick={() => logOut()}>
-                Logout
-              </NavDropdown.Item>
+              {!profile ? (
+                <>
+                  {" "}
+                  <NavDropdown.Item as={Link} to="/login">
+                    Login
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/register">
+                    Register
+                  </NavDropdown.Item>
+                </>
+              ) : (
+                <NavDropdown.Item onClick={() => logOut()}>
+                  Logout
+                </NavDropdown.Item>
+              )}
             </NavDropdown>{" "}
           </Nav>
         </Navbar.Collapse>
