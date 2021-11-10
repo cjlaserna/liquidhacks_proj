@@ -9,7 +9,11 @@
 }
 
 .forum--banner {
-  background-image: url("./Forum_Banner.png");
+  background: linear-gradient(
+    90deg,
+    var(--bs-primary) 0%,
+    rgba(3, 15, 27, 1) 100%
+  );
   width: 100%;
   height: 347px;
   color: white;
@@ -25,5 +29,15 @@
 
 .forum__sidebar {
   background-color: var(--bs-primary);
-  height: 300px;
+  height: 700px;
+}
+
+.forum__content {
+  width: 100%;
+}
+
+.forum__sidebar .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-primary);
+  background-color: var(--bs-secondary);
 }

@@ -1,7 +1,8 @@
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import "./forum.css";
-import Logo from "./logo.png";
-const Forum = () => {
+import ForumSideBar from "./ForumSideBar";
+
+const Forum = ({ children }) => {
   return (
     <main className="forum__container">
       <section className="forum--bar" />
@@ -21,12 +22,13 @@ const Forum = () => {
           </p>
         </article>
       </section>
-      <Row as="section" className="forum__content">
-        <Col as="article" className="p-4  forum__sidebar " sm={4}>
-          sm=8
+
+      <Row as="section" className="forum__content d-flex flex-row ">
+        <Col as="article" className="forum__sidebar" md={4} xs={12}>
+          <ForumSideBar />
         </Col>
-        <Col as="article" className="p-4 " sm={8}>
-          sm=4
+        <Col as="article" xs={12} md={8}>
+          {children}
         </Col>
       </Row>
     </main>
