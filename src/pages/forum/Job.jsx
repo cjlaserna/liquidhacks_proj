@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
-import { Container, Button, Card } from "react-bootstrap";
+import { Container, Button, Card, Form } from "react-bootstrap";
 import { supabase } from "../../supabase/supabaseClient";
 import { Loader } from "../../utils/Loader";
 import Forum from "./Forum";
 import { DateTime } from "luxon";
+import useModal from "../../useHooks/useModal";
+import ModalForm from "../../layout/ModalForm";
+import { useForm } from "../../useHooks/useForm";
+const initJob = {
+  title: "",
+  description: "",
+};
 const Job = ({ profile }) => {
   const [jobs, setJobs] = useState([]);
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { show, handleClose, handleShow } = useModal();
 
   useEffect(() => {
     let isMounted = true;
@@ -36,39 +44,77 @@ const Job = ({ profile }) => {
 
     return () => (isMounted = false);
   }, []);
-  // const newJob = async (jobForm) => {
-  //   setLoading(true);
-  //   setErrorMessage(false);
-  //   try {
-  //     const { data, error } = await supabase
+  const newJob = async () => {
+    const userForm = { ...form, owner: profile.id };
+    setLoading(true);
+    setErrorMessage(false);
+    try {
+      const { data, error } = await supabase
+        .from("jobs")
+        .insert(userForm)
+        .single();
+      if (error) throw error;
+      const userNew = { ...data, profiles: { username: profile.username } };
 
-  //       .from("jobs")
-  //       .insert(jobForm)
-  //       .single();
-  //     if (error) throw error;
-  //     setJobs((j) => [...j, data]);
-  //   } catch (error) {
-  //     setErrorMessage(true);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
+      setJobs((j) => [...j, userNew]);
+      resetChanges();
+    } catch (error) {
+      setErrorMessage(true);
+    } finally {
+      setLoading(false);
+      !errorMessage && handleClose();
+    }
+  };
+  const { form, handleChange, onSubmit, resetChanges } = useForm(
+    initJob,
+    newJob
+  );
   const authenticated = !profile ? true : false;
   return (
     <Forum>
       <Container>
         <h1>Esports Job and Industry Discussion</h1>
         <Button
-          disabled={authenticated}
           variant="primary"
           // onClick={() => newJob(example)}
         >
           New
-        </Button>{" "}
-        <Button variant="primary">Top</Button>{" "}
+        </Button>
+        <Button variant="primary">Top</Button>
         <Button variant="primary">Hot</Button>
-        <Button variant="primary">Start a Discussion</Button>
+        <Button variant="primary" disabled={authenticated} onClick={handleShow}>
+          Start a Discussion
+        </Button>
+        <ModalForm show={show} handleClose={handleClose} title="Awesome TItle">
+          <Form onSubmit={onSubmit}>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="awesome title"
+                value={form.title}
+                name="title"
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                value={form.description}
+                name="description"
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </ModalForm>
         <section className="my-4 p-4  overflow-auto job-cards">
           <Loader loading={loading} error={errorMessage}>
             {jobs.map((i) => (
@@ -88,7 +134,7 @@ const JobCard = ({ job }) => {
   const cDate = DateTime.fromJSDate(createdDate);
 
   return (
-    <Card className="text-center my-4 box-shadow">
+    <Card className="text-center my-4 box-shadow" border="primary">
       <Card.Header>{job.profiles.username}</Card.Header>
       <Card.Body>
         <Card.Title>{job.title}</Card.Title>

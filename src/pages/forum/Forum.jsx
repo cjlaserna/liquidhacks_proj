@@ -27,7 +27,7 @@ const Forum = ({ children }) => {
         <Col as="article" className="forum__sidebar" md={4} xs={12}>
           <ForumSideBar />
         </Col>
-        <Col as="article" className="forum__jobs " xs={12} md={8}>
+        <Col as="article" className="forum__jobs p-4 " xs={12} md={8}>
           {children}
         </Col>
       </Row>
