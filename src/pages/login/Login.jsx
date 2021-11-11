@@ -1,27 +1,32 @@
 import { useState } from "react";
 import { Container, Form, Button, Spinner } from "react-bootstrap";
+import { Navigate } from "react-router";
 import { supabase } from "../../supabase/supabaseClient";
 import { useForm } from "../../useHooks/useForm";
 const initiForm = {
   email: "",
   password: "",
 };
-const Login = () => {
+const Login = ({ session }) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+
   const handleRegister = async () => {
     try {
-      setError(false);
+      setErrorMessage(false);
       setLoading(true);
       const { error } = await supabase.auth.signIn(form);
       if (error) throw error;
     } catch (error) {
-      setError("error loading");
+      setErrorMessage("error loading");
     } finally {
       setLoading(false);
     }
   };
   const { form, handleChange, onSubmit } = useForm(initiForm, handleRegister);
+  if (session && !loading && !errorMessage) {
+    return <Navigate to="/" />;
+  }
   return (
     <Container>
       <h1>Login </h1>
@@ -68,7 +73,7 @@ const Login = () => {
             "Submit"
           )}
         </Button>
-        <p>{error}</p>
+        <p>{errorMessage}</p>
       </Form>
     </Container>
   );
