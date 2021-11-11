@@ -1,32 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Container, Form, Button, Spinner } from "react-bootstrap";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
 import { supabase } from "../../supabase/supabaseClient";
 import { useForm } from "../../useHooks/useForm";
+
 const initiForm = {
   email: "",
   password: "",
 };
-const Login = ({ session }) => {
+const Login = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
+  const isMounted = useRef(true);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
+  const navigate = useNavigate();
   const handleRegister = async () => {
+    let success = false;
     try {
-      setErrorMessage(false);
-      setLoading(true);
-      const { error } = await supabase.auth.signIn(form);
+      if (isMounted.current) {
+        setErrorMessage(false);
+        setLoading(true);
+      }
+      const { error, data } = await supabase.auth.signIn(form);
       if (error) throw error;
+      if (data) {
+        success = true;
+      }
     } catch (error) {
-      setErrorMessage("error loading");
+      isMounted.current && setErrorMessage(error.message);
     } finally {
-      setLoading(false);
+      isMounted.current && setLoading(false);
+      if (success) {
+        navigate("/");
+      }
     }
   };
   const { form, handleChange, onSubmit } = useForm(initiForm, handleRegister);
-  if (session && !loading && !errorMessage) {
-    return <Navigate to="/" />;
-  }
+
   return (
     <Container>
       <h1>Login </h1>
