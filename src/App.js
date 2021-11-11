@@ -11,7 +11,7 @@ import { supabase } from "./supabase/supabaseClient";
 import { Loader } from "./utils/Loader";
 
 function App() {
-  const [session, setSession] = useState(null);
+  const [authsession, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   useEffect(() => {
@@ -26,7 +26,7 @@ function App() {
       setSession(session);
 
       if (session) {
-        getProfile(userSession.user.id);
+        getProfile(session.user.id);
       } else {
         setSession((s) => ({ ...s, profile: null }));
       }
@@ -48,7 +48,7 @@ function App() {
       setLoading(false);
     }
   };
-  const profile = session ? session.profile : false;
+  const profile = authsession ? authsession.profile : false;
   // console.log(profile);
 
   return (
