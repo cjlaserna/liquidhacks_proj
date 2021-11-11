@@ -1,5 +1,15 @@
 import "./landingpage.css";
-import { Button, Col, Container, Card, Row, Carousel, Form } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Card,
+  Row,
+  Carousel,
+  Form,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import previmg_1 from "../../assets/courses/esports101.jpg";
 import previmg_2 from "../../assets/courses/coaching.jpg";
 import previmg_3 from "../../assets/courses/streaming.jpg";
@@ -20,17 +30,19 @@ export default function Home() {
         <Row>
           <Col md={{ offset: 6 }}>
             <p className="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-              porttitor interdum lorem venenatis. Volutpat mi in turpis egestas
-              ut sed imperdiet habitant donec.
+              A global online learning platform aimed at promoting different
+              roles within the esports workspace through courses from leading
+              industry professionals.
             </p>
           </Col>
         </Row>
         <Row>
           <Col md={{ offset: 6 }}>
-            <Button variant="outline-light" size="lg">
-              Learn More
-            </Button>
+            <Link to="/about">
+              <Button variant="outline-light" size="lg">
+                Learn More
+              </Button>
+            </Link>
           </Col>
         </Row>
       </div>
@@ -39,15 +51,24 @@ export default function Home() {
           <Col>
             <h1 className="heading">Esports 101</h1>
             <p className="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec morbi
-              vel mi laoreet nec at. Sed tempor arcu aliquam id. Odio gravida
-              egestas eu semper vulputate sed cras sagittis aliquam. Cras duis
-              viverra vivamus amet gravida tristique vitae lectus tincidunt.
-              Diam commodo, aliquet egestas aliquet convallis est. Placerat in
-              semper integer neque lorem nunc, ultrices sed. Fames arcu mauris
-              arcu accumsan. Tellus tempus nisi, libero blandit. Nulla accumsan
-              morbi lectus nisi.
+              Esports is a term used for competitive gaming. In esports, games
+              revolve around PvP gameplay. These games include titles like:
+              <ul>
+                <li>League of Legends</li>
+                <li>Counter-Strike: GO</li>
+                <li>...and all sorts of vastly different games.</li>
+              </ul>
+              One of the most misunderstood element of entering the esports
+              scene is that there's only room for players within the space.
+              However, organizations seek out a variety of employees, roles are
+              almost never limited to gamers. In this course, we'll explore
+              esports in it's entirety and break down the stigma surrounding it.
             </p>
+            <div className="float-end">
+              <Link to="/Courses">
+                <Button variant="outline-primary">Read More...</Button>
+              </Link>
+            </div>
           </Col>
           <Col>
             <div className="preview"></div>
@@ -82,7 +103,7 @@ export default function Home() {
                       <strong>Esports 101</strong>
                     </Card.Title>
                     <Card.Text className="desc">
-                      A free introduction to the world of esports.
+                      A free general introduction to the world of esports.
                     </Card.Text>
                   </Card>
                 </Col>
@@ -108,7 +129,8 @@ export default function Home() {
                       <strong>Coaching</strong>
                     </Card.Title>
                     <Card.Text className="desc">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                      A quick guide peeking into the collaborative work of
+                      coaching.
                     </Card.Text>
                   </Card>
                 </Col>
@@ -134,7 +156,7 @@ export default function Home() {
                       <strong>Streaming</strong>
                     </Card.Title>
                     <Card.Text className="desc">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                      Explore the spaces within the likes of Twitch and Youtube.
                     </Card.Text>
                   </Card>
                 </Col>
@@ -152,7 +174,7 @@ export default function Home() {
                 <span>/year</span>
               </p>
               <p className="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                This plan unlocks all courses and features within LiquidEdu.
               </p>
             </Col>
             <Col>
@@ -162,7 +184,7 @@ export default function Home() {
               </p>
               <div className="mb-2">
                 <Button variant="outline-primary" size="lg">
-                Buy Now
+                  Buy Now
                 </Button>
               </div>
             </Col>
@@ -172,55 +194,67 @@ export default function Home() {
       <Container className="mentors--container container--full" fluid>
         <h1 className="heading text-center">Our Mentors</h1>
         <Container>
-        <Row>
-          <Col>
-            <Card>
-              <Card.Img variant="top" src={johndoe} />
+          <Row>
+            <Col>
+              <Card>
+                <Card.Img variant="top" src={johndoe} />
                 <Card.Title>John Doe</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Proffesional Coach
                 </Card.Subtitle>
-            </Card>
-          </Col>
-          <Col>
-          <Card>
-              <Card.Img variant="top" src={naraparker} />
+              </Card>
+            </Col>
+            <Col>
+              <Card>
+                <Card.Img variant="top" src={naraparker} />
                 <Card.Title>Nara Parker</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Proffesional Coach
                 </Card.Subtitle>
-            </Card>
-          </Col>
-          <Col>
-          <Card>
-              <Card.Img variant="top" src={davidmills} />
+              </Card>
+            </Col>
+            <Col>
+              <Card>
+                <Card.Img variant="top" src={davidmills} />
                 <Card.Title>David Mills</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Proffesional Coach
                 </Card.Subtitle>
-            </Card>
-          </Col>
-        </Row>
-        <span className="text-muted citation">Photos <a href="https://unsplash.com/@cikstefan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"> from Unsplash</a></span>
+              </Card>
+            </Col>
+          </Row>
+          <span className="text-muted citation">
+            Photos{" "}
+            <a href="https://unsplash.com/@cikstefan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+              {" "}
+              from Unsplash
+            </a>
+          </span>
         </Container>
       </Container>
       <Container className="contact--container">
-      <Row>
+        <Row>
           <Col>
             <div className="preview"></div>
           </Col>
           <Col>
             <h1 className="heading">Contact Us</h1>
             <Form>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
                 <Form.Control type="email" placeholder="Your Email" />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
                 <Form.Control as="textarea" placeholder="Message" rows={10} />
               </Form.Group>
               <div className="mb-2">
                 <Button variant="outline-primary" type="submit">
-                Submit
+                  Submit
                 </Button>
               </div>
             </Form>
