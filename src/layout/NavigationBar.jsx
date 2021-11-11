@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 import { supabase } from "../supabase/supabaseClient";
+import './navbar.css';
 
 export default function NavigationBar({ profile }) {
   const logOut = async () => await supabase.auth.signOut();
@@ -12,7 +13,7 @@ export default function NavigationBar({ profile }) {
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            LIQUID EDU
+            LIQUID<span>EDU</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

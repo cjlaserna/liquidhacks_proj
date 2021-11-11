@@ -65,6 +65,7 @@ function App() {
             </Route>
           </Route>
         </Routes>
+        <footer></footer>
       </Loader>
     </BrowserRouter>
   );
