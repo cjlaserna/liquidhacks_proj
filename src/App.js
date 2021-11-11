@@ -6,7 +6,6 @@ import Job from "./pages/forum/Job";
 import MainForum from "./pages/forum/MainForum";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import NoMatch from "./pages/NoMatch/NoMatch";
 import Register from "./pages/register/Register";
 import { supabase } from "./supabase/supabaseClient";
 import { Loader } from "./utils/Loader";
@@ -21,10 +20,11 @@ function App() {
     if (userSession) {
       getProfile(userSession.user.id);
     } else {
-      setSession((s) => ({ ...s, profile: "Guest" }));
+      setSession((s) => ({ ...s, profile: null }));
     }
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+
       if (session) {
         getProfile(userSession.user.id);
       } else {
@@ -48,18 +48,21 @@ function App() {
       setLoading(false);
     }
   };
+  const profile = session ? session.profile : false;
+  // console.log(profile);
+
   return (
     <BrowserRouter>
       <Loader loading={loading} error={error}>
-        <NavigationBar profile={session.profile} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forum">
-            <Route index element={<MainForum />} />
-            <Route path="job" element={<Job />} />
-            <Route path="*" element={<NoMatch />} />
+          <Route path="/" element={<NavigationBar profile={profile} />}>
+            <Route index element={<Home />} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login session={profile} />} />
+            <Route path="/forum">
+              <Route index element={<MainForum />} />
+              <Route path="job" element={<Job profile={profile} />} />
+            </Route>
           </Route>
         </Routes>
       </Loader>
