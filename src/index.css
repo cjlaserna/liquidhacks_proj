@@ -9,6 +9,17 @@
     src: url('./assets/ParksonSemiBoldItalicOutline.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
+
+/* brand */
+.brand{
+    font-family: Parkson;
+}
+
+.brand span{
+    font-family: ParksonOutline;
+}
+
+
 /* styled texts */
 .hero__heading{
     font-family: ParksonOutline;
@@ -26,6 +37,7 @@
     font-size: 8rem;
 }
 
+/* components */
 .card{
     background: transparent;
 }
@@ -33,4 +45,7 @@
 footer{
     background: #2C3E50;
     height: 80px;
+}
+.bs-linebreak {
+    height: 1px;
 }

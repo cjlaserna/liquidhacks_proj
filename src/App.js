@@ -5,6 +5,7 @@ import Job from "./pages/forum/Job";
 
 import MainForum from "./pages/forum/MainForum";
 import Home from "./pages/home/Home";
+import About from "./pages/about/About";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { supabase } from "./supabase/supabaseClient";
@@ -63,6 +64,7 @@ function App() {
               <Route index element={<MainForum />} />
               <Route path="job" element={<Job profile={profile} />} />
             </Route>
+            <Route path="/about" element={<About />} />
           </Route>
         </Routes>
         <footer></footer>
