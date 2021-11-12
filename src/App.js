@@ -4,6 +4,7 @@ import NavigationBar from "./layout/NavigationBar";
 import Job from "./pages/forum/Job";
 
 import MainForum from "./pages/forum/MainForum";
+import ViewJobPost from "./pages/forum/ViewJobPost";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Login from "./pages/login/Login";
@@ -60,9 +61,16 @@ function App() {
             <Route index element={<Home />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login session={profile} />} />
-            <Route path="/forum">
+            <Route path="forum">
               <Route index element={<MainForum />} />
-              <Route path="job" element={<Job profile={profile} />} />
+              <Route
+                path="job"
+                element={<Job profile={profile} />}
+              ></Route>{" "}
+              <Route
+                path="job/:viewId"
+                element={<ViewJobPost profile={profile} />}
+              />
             </Route>
             <Route path="/about" element={<About />} />
           </Route>

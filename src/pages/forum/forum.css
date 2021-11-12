@@ -52,3 +52,7 @@
 .box-shadow {
   box-shadow: 14px -7px 23px -8px #545454;
 }
+
+.comment-cards {
+  height: 500px;
+}
