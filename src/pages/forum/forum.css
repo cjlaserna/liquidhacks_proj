@@ -34,8 +34,13 @@
     rgba(3, 15, 27, 1) 100%
   );
   width: 100%;
-  height: 347px;
   color: white;
+}
+
+.forum--banner .col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner--logo {
@@ -53,7 +58,6 @@
 
 .forum__content {
   width: 100%;
-  height: 1000px;
 }
 
 .forum__sidebar .nav-pills .nav-link.active,
@@ -62,20 +66,88 @@
   background-color: var(--bs-secondary);
 }
 
+div.mainforum--container{
+  padding: 3rem;
+}
+
+.mainforum--container .heading{
+  font-size: 5rem;
+}
+
+.forum__sidebar{
+  border-right: 2px solid #3A70A6;
+  /* min-height: 1000px;
+
+  height: 100%; */
+  min-height: 1000px;
+  height: unset;
+}
+
+.forum__sidebar .nav-link{
+  font-size: 1.10rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.forum__sidebar .nav-pills .nav-item{
+  line-height: 3rem;
+}
+
+.forum__sidebar .nav-pills .nav-item.is-active .nav-link{
+  background-color: #fff;
+  border-radius: 0;
+  border-right: 5px solid #3A70A6;
+  color: var(--bs-primary);
+}
+
+.forum__sidebar .nav-pills .nav-item:hover .nav-link{
+  color: var(--bs-secondary);
+}
+
+.forum__content { display: -ms-flex; display: -webkit-flex; display: flex; }
+.forum__content>.forum__sidebar { flex:1; }
+
+/* jobs */
 .forum__jobs {
   height: 100%;
 }
-.job-cards {
-  height: 700px;
-  border: 2px solid var(--bs-primary);
-  border-radius: 10px;
-}
+
 .box-shadow {
-  box-shadow: 14px -7px 23px -8px #545454;
+  box-shadow: 3px 2px 8px rgba(218, 218, 218, 0.5);
 }
 
 .comment-cards {
   height: 500px;
-  border: 2px solid var(--bs-primary);
   border-radius: 10px;
+}
+
+.sorting--container .btn{
+  margin-right: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.category--container h1.heading{
+  font-size: 5rem;
+}
+
+.job-cards .card{
+  border-radius: 0;
+  border: none;
+
+  background-color: #F9F9F9;
+}
+
+.job-cards .card, .card-header, .card-body, .card-footer{
+  border: none !important;
+  background-color: #F9F9F9 !important;
+}
+
+.job-cards .card .card-title{
+  font-size: 1.5rem;
+}
+
+/* jobpost */
+.jobpost--container .icon{
+  margin-top: 5px;
 }

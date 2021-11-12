@@ -8,6 +8,8 @@ import useModal from "../../useHooks/useModal";
 import ModalForm from "../../layout/ModalForm";
 import { useForm } from "../../useHooks/useForm";
 import { Link } from "react-router-dom";
+
+import { MdPersonOutline } from 'react-icons/md';
 const initJob = {
   title: "",
   description: "",
@@ -73,8 +75,9 @@ const Job = ({ profile }) => {
   const authenticated = !profile ? true : false;
   return (
     <Forum>
-      <Container>
-        <h1>Esports Job and Industry Discussion</h1>
+      <Container className="category--container">
+        <h1 className="heading">Esports Job &amp; Industry Discussion</h1>
+        <Container className="sorting--container">
         <Button
           variant="primary"
           // onClick={() => newJob(example)}
@@ -86,6 +89,7 @@ const Job = ({ profile }) => {
         <Button variant="primary" disabled={authenticated} onClick={handleShow}>
           Start a Discussion
         </Button>
+        </Container>
         <ModalForm show={show} handleClose={handleClose} title="Awesome TItle">
           <Form onSubmit={onSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -116,7 +120,7 @@ const Job = ({ profile }) => {
             </Button>
           </Form>
         </ModalForm>
-        <section className="my-4 p-4  overflow-auto job-cards">
+        <section className="my-4  job-cards">
           <Loader loading={loading} error={errorMessage}>
             {jobs.map((i) => (
               <JobCard key={i.id} job={i} />
@@ -135,16 +139,16 @@ const JobCard = ({ job }) => {
   const cDate = DateTime.fromJSDate(createdDate);
 
   return (
-    <Card className="text-center my-4 box-shadow" border="primary">
-      <Card.Header>{job.profiles.username}</Card.Header>
+    <Card className="my-4 box-shadow">
+      <Card.Header className="float-start text-left">{job.profiles.username} < MdPersonOutline className="icon float-end" /></Card.Header>
       <Card.Body>
-        <Card.Title>{job.title}</Card.Title>
+        <Card.Title className="float-start">{job.title}</Card.Title>
 
-        <Button variant="primary" as={Link} to={`${job.id}`}>
+        <Button variant="primary" as={Link} to={`${job.id}`} className="float-end">
           Check It Out
         </Button>
       </Card.Body>
-      <Card.Footer className="text-muted">
+      <Card.Footer className="text-muted float-end text-right">
         {cDate.toLocaleString(DateTime.DATETIME_FULL)}
       </Card.Footer>
     </Card>

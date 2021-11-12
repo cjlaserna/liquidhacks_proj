@@ -37,11 +37,23 @@
     font-size: 8rem;
 }
 
+.text-left{
+    text-align: left !important;
+}
+
+.text-right{
+    text-align: right !important;
+}
+
 /* components */
 .card{
     background: transparent;
 }
-
+.icon{
+    margin-top: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
 footer{
     background: #2C3E50;
     height: 80px;

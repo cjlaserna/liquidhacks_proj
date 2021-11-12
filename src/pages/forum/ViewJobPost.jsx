@@ -8,7 +8,10 @@ import { useForm } from "../../useHooks/useForm";
 import useModal from "../../useHooks/useModal";
 import { Loader } from "../../utils/Loader";
 import Forum from "./Forum";
+import { Link } from "react-router-dom";
 
+import { MdPersonOutline } from 'react-icons/md';
+import { IoArrowBackCircleSharp } from 'react-icons/io5';
 const ViewJobPost = ({ profile }) => {
   const { viewId } = useParams();
   const [errorMessage, setErrorMessage] = useState(false);
@@ -86,7 +89,8 @@ const ViewJobPost = ({ profile }) => {
     setJobs((j) => ({ ...j, comments: [...j.comments, comment] }));
   return (
     <Forum>
-      <Container>
+      <Container className="jobpost--container">
+        <Link to="/forum/job"><Button variant="primary"> <IoArrowBackCircleSharp className="float-start icon"/>&nbsp; Back to Browsing</Button></Link>
         <Loader loading={loading} error={errorMessage}>
           {jobs && <JobCard job={jobs} />}
           <h2>Comments: </h2>
@@ -123,14 +127,14 @@ const JobCard = ({ job }) => {
   const cDate = DateTime.fromJSDate(createdDate);
 
   return (
-    <Card className="text-center my-4 box-shadow" border="primary">
-      <Card.Header>{job.profiles.username}</Card.Header>
+    <Card className="my-4"> 
+      <Card.Header className="text-left">{job.profiles.username} < MdPersonOutline className="icon float-end" /></Card.Header>
       <Card.Body>
         <Card.Title>{job.title}</Card.Title>
 
         <Card.Text>{job.description}</Card.Text>
       </Card.Body>
-      <Card.Footer className="text-muted">
+      <Card.Footer className="text-muted text-right">
         {cDate.toLocaleString(DateTime.DATETIME_FULL)}
       </Card.Footer>
     </Card>

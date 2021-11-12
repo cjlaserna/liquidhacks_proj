@@ -40,7 +40,7 @@ const Forum = ({ children }) => {
       </section>
 
       <Row as="section" className="forum__content d-flex flex-row ">
-        <Col as="article" className="forum__sidebar" md={4} xs={12}>
+        <Col as="article" className="forum__sidebar" md={3} xs={12}>
           <ForumSideBar />
         </Col>
         <Col as="article" className="forum__jobs p-4 " xs={12} md={8}>
