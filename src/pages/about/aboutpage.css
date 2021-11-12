@@ -44,7 +44,7 @@
 }
 
 /* price container */
-.price--container {
+.about .price--container {
   background: linear-gradient(278.17deg, rgba(44, 62, 80, 0) 0%, #15191d 97.36%),
     url(../../assets/Hero.png);
   color: white;

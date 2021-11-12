@@ -1,11 +1,10 @@
 import "./aboutpage.css";
 
 import { Button, Col, Container, Row, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <main>
+    <main className="about">
       <Container fluid className="hero">
         <Container>
           <Row>
