@@ -50,12 +50,14 @@ const Login = () => {
     <Container fluid className="login--container">
       <Container className="login__box">
         <Row>
-          <Col md={{ offset: 1 }} >
+          <Col md={{ offset: 1 }}>
             <Container>
-          <div className="banner--logo">
-            <h1 className="brand">Liquid<span>EDU</span></h1>
-          </div>
-            <h1 className="heading"> Welcome Back! </h1>
+              <div className="banner--logo">
+                <h1 className="brand">
+                  Liquid<span>EDU</span>
+                </h1>
+              </div>
+              <h1 className="heading"> Welcome Back! </h1>
             </Container>
             <Form onSubmit={onSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -83,7 +85,12 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <Button disabled={loading} variant="primary" type="submit" className="float-end">
+              <Button
+                disabled={loading}
+                variant="primary"
+                type="submit"
+                className="float-end"
+              >
                 {loading ? (
                   <>
                     {" "}
@@ -106,7 +113,9 @@ const Login = () => {
               </p>
             </Form>
           </Col>
-          <Col xs={6} md={6} className="preview--container"><div className="preview"></div></Col>
+          <Col xs={6} md={6} className="preview--container">
+            <div className="preview"></div>
+          </Col>
         </Row>
       </Container>
     </Container>
