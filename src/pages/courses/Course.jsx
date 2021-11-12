@@ -1,46 +1,49 @@
 import { useState } from "react";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { useParams } from "react-router";
 import "./course.css";
 
 const course = [
   {
     id: 1,
-    title: "intro",
+    title: "Section 1: Understanding the game",
     link: "Vrh3ELlhdsA",
   },
-  { id: 9000, title: "Liquid Plus", link: "s7IRqVrEeVM" },
+
   {
     id: 2,
-    title: "Coinbase",
+    title: "Section 2: Understanding different roles",
     link: "KIJkRv6HM6M",
   },
   {
     id: 3,
-    title: "Team Liquid X Naruto",
+    title: "Section 3: Working as a team",
     link: "dvkJTBm1sEc",
   },
   {
     id: 4,
-    title: "Apex Legends 101",
+    title: "Section 4",
     link: "ILY1sM7jgmM",
   },
+  { id: 9000, title: "Liquid Plus", link: "s7IRqVrEeVM" },
   {
     id: 5,
-    title: "Best Roster",
+    title: "Section 5",
     link: "C-BGtFws6iY",
   },
   {
     id: 6,
-    title: "Tstats show",
+    title: "Section 6",
     link: "cJLhBdXKqrk",
   },
   {
     id: 7,
-    title: "Scoped Joins Team Liquid",
+    title: "Section 7",
     link: "PgoS0TP4bnQ",
   },
 ];
 const Course = () => {
+  const { name } = useParams();
   const [selection, setSelection] = useState({
     id: 1,
     title: "intro",
@@ -48,7 +51,7 @@ const Course = () => {
   });
   return (
     <Container className="py-4 ">
-      <h1>Liquid Course</h1>
+      <h1>{name} Course</h1>
       <Row>
         <Col className="course-col py-4" md={8}>
           <iframe
