@@ -5,7 +5,7 @@ import { supabase } from "../../supabase/supabaseClient";
 import { useForm } from "../../useHooks/useForm";
 import { Link } from "react-router-dom";
 
-import './login.css'
+import './login.css';
 
 const initiForm = {
   email: "",
