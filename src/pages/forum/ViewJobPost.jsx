@@ -15,12 +15,14 @@ const ViewJobPost = ({ profile }) => {
   const [loading, setLoading] = useState(false);
   const [jobs, setJobs] = useState(null);
   const isMounted = useRef(true);
-  const initJob = {
-    title: "",
-    description: "",
-    commenter: profile.id,
-    jobid: viewId,
-  };
+  const initJob = profile
+    ? {
+        title: "",
+        description: "",
+        commenter: profile.id,
+        jobid: viewId,
+      }
+    : null;
 
   useEffect(() => {
     const fetchJobPosts = async () => {
@@ -88,14 +90,16 @@ const ViewJobPost = ({ profile }) => {
         <Loader loading={loading} error={errorMessage}>
           {jobs && <JobCard job={jobs} />}
           <h2>Comments: </h2>
-          <CommentForm
-            initJob={initJob}
-            show={show}
-            handleClose={handleClose}
-            fetchJobComment={fetchJobComment}
-            userName={profile.username}
-            addComments={(x) => addComments(x)}
-          />
+          {profile && (
+            <CommentForm
+              initJob={initJob}
+              show={show}
+              handleClose={handleClose}
+              fetchJobComment={fetchJobComment}
+              userName={profile.username || null}
+              addComments={(x) => addComments(x)}
+            />
+          )}
           <Button
             variant="primary"
             disabled={authenticated}
