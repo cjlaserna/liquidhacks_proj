@@ -10,23 +10,22 @@
   color: #000;
 }
 
-.forum--breadcrumbs .breadcrumb{
+.forum--breadcrumbs .breadcrumb {
   margin: 0;
 }
 
-.forum--breadcrumbs .breadcrumb a{
+.forum--breadcrumbs .breadcrumb a {
   color: #808080;
   text-decoration: none;
 }
-.forum--breadcrumbs .breadcrumb a:hover{
+.forum--breadcrumbs .breadcrumb a:hover {
   color: var(--bs-primary);
   text-decoration: none;
 }
 
-.forum--breadcrumbs .breadcrumb .breadcrumb-item{
-  color:  var(--bs-primary);
+.forum--breadcrumbs .breadcrumb .breadcrumb-item {
+  color: var(--bs-primary);
 }
-
 
 .forum--banner {
   background: linear-gradient(
@@ -68,6 +67,8 @@
 }
 .job-cards {
   height: 700px;
+  border: 2px solid var(--bs-primary);
+  border-radius: 10px;
 }
 .box-shadow {
   box-shadow: 14px -7px 23px -8px #545454;
@@ -75,4 +76,6 @@
 
 .comment-cards {
   height: 500px;
+  border: 2px solid var(--bs-primary);
+  border-radius: 10px;
 }
