@@ -4,7 +4,7 @@ import { Button, Col, Container, Row, Form } from "react-bootstrap";
 
 export default function About() {
   return (
-    <main>
+    <main className="about">
       <Container fluid className="hero">
         <Container>
           <Row>
