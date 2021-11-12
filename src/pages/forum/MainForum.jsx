@@ -5,8 +5,8 @@ const MainForum = () => {
   return (
     <Forum>
       <Container>
-        <h2>FORUM RULES: </h2>
-        <ul>
+        <h2 className="heading">FORUM RULES: </h2>
+        <ul className="desc">
           <li>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec morbi
             vel mi laoreet nec at. Sed tempor arcu aliquam id.
