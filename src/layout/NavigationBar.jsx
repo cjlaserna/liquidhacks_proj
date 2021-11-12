@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 import { supabase } from "../supabase/supabaseClient";
-import './navbar.css';
+import "./navbar.css";
 
 export default function NavigationBar({ profile }) {
   const logOut = async () => await supabase.auth.signOut();
@@ -44,9 +44,14 @@ export default function NavigationBar({ profile }) {
                     </NavDropdown.Item>
                   </>
                 ) : (
-                  <NavDropdown.Item onClick={() => logOut()}>
-                    Logout
-                  </NavDropdown.Item>
+                  <>
+                    <NavDropdown.Item onClick={() => logOut()}>
+                      Logout
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/settings">
+                      Settings
+                    </NavDropdown.Item>
+                  </>
                 )}
               </NavDropdown>{" "}
             </Nav>

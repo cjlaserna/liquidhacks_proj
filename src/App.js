@@ -12,6 +12,7 @@ import Register from "./pages/register/Register";
 import { supabase } from "./supabase/supabaseClient";
 import { Loader } from "./utils/Loader";
 import Course from "./pages/courses/Course";
+import Settings from "./accounts/Settings";
 
 function App() {
   const [authsession, setSession] = useState(null);
@@ -75,6 +76,7 @@ function App() {
             </Route>
             <Route path="/about" element={<About />} />
             <Route path="/courses" element={<Course />} />
+            <Route path="/settings" element={<Settings profile={profile} />} />
           </Route>
         </Routes>
         <footer></footer>
