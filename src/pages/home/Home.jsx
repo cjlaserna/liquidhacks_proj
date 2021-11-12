@@ -14,7 +14,7 @@ import previmg_1 from "../../assets/courses/esports101.jpg";
 import previmg_2 from "../../assets/courses/coaching.jpg";
 import previmg_3 from "../../assets/courses/streaming.jpg";
 
-import johndoe from "../../assets/mentors/johndoe.jpg";
+import jackfenton from "../../assets/mentors/jackfenton.png";
 import naraparker from "../../assets/mentors/naraparker.jpg";
 import davidmills from "../../assets/mentors/davidmills.jpg";
 
@@ -170,8 +170,8 @@ export default function Home() {
           <Row>
             <Col>
               <p id="price">
-                <span>$000</span>
-                <span>/year</span>
+                <span>$9.99</span>
+                <span>/month</span>
               </p>
               <p className="desc">
                 This plan unlocks all courses and features within LiquidEdu.
@@ -197,10 +197,10 @@ export default function Home() {
           <Row>
             <Col>
               <Card>
-                <Card.Img variant="top" src={johndoe} />
-                <Card.Title>John Doe</Card.Title>
+                <Card.Img variant="top" src={jackfenton} />
+                <Card.Title>Jack Fenton</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Proffesional Coach
+                  Head of WarwickU Esports
                 </Card.Subtitle>
               </Card>
             </Col>
