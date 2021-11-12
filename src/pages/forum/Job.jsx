@@ -7,6 +7,7 @@ import { DateTime } from "luxon";
 import useModal from "../../useHooks/useModal";
 import ModalForm from "../../layout/ModalForm";
 import { useForm } from "../../useHooks/useForm";
+import { Link } from "react-router-dom";
 const initJob = {
   title: "",
   description: "",
@@ -139,7 +140,9 @@ const JobCard = ({ job }) => {
       <Card.Body>
         <Card.Title>{job.title}</Card.Title>
 
-        <Button variant="primary">Check It Out</Button>
+        <Button variant="primary" as={Link} to={`${job.id}`}>
+          Check It Out
+        </Button>
       </Card.Body>
       <Card.Footer className="text-muted">
         {cDate.toLocaleString(DateTime.DATETIME_FULL)}
