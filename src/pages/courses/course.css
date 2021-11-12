@@ -1,0 +1,10 @@
+.course-col {
+  height: 500px;
+}
+
+.course-sidebar {
+  border: 2px solid var(--bs-primary);
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}

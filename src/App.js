@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { supabase } from "./supabase/supabaseClient";
 import { Loader } from "./utils/Loader";
+import Course from "./pages/courses/Course";
 
 function App() {
   const [authsession, setSession] = useState(null);
@@ -73,6 +74,7 @@ function App() {
               />
             </Route>
             <Route path="/about" element={<About />} />
+            <Route path="/courses" element={<Course />} />
           </Route>
         </Routes>
         <footer></footer>
