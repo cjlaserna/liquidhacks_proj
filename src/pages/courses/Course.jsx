@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import "./course.css";
 
@@ -81,15 +81,10 @@ export default Course;
 const CourseCard = (props) => (
   <Card
     style={{ width: "100%", height: "200px" }}
-    border="primary"
     className="my-2"
   >
-    <Card.Body>
+    <Card.Body onClick={props.setSelection} className="course-sectionlist-item">
       <Card.Title>{props.title}</Card.Title>
-
-      <Button onClick={props.setSelection} variant="primary">
-        Check it
-      </Button>
     </Card.Body>
   </Card>
 );

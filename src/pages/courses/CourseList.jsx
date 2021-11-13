@@ -36,8 +36,8 @@ const SomeCard = (props) => (
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
 
-        <Button variant="primary" as={Link} to={`${props.name}`}>
-          Go somewhere
+        <Button className="float-end" variant="primary" as={Link} to={`${props.name}`}>
+          View this Course
         </Button>
       </Card.Body>
     </Card>
