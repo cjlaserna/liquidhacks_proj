@@ -70,8 +70,8 @@ export default function About() {
           <Row>
             <Col>
               <p id="price">
-                <span>$000</span>
-                <span>/year</span>
+                <span>$9.99</span>
+                <span>/month</span>
               </p>
               <p className="desc">
                 This plan unlocks all courses and features within LiquidEdu.

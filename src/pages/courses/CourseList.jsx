@@ -1,4 +1,4 @@
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Card, Col, Container, Row, Button, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const gameList = [
@@ -27,8 +27,14 @@ const gameList = [
 
 const CourseList = () => {
   return (
-    <Container>
-      <h1>List of Courses </h1>
+    <Container className="courselist--container">
+      <Breadcrumb className="forum--breadcrumbs">
+        <Breadcrumb.Item>
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>Courses</Breadcrumb.Item>
+      </Breadcrumb>
+      <h1 className="hero heading">Our Courses</h1>
       <Row>
         {gameList.map((g) => (
           <SomeCard {...g} />
@@ -48,8 +54,8 @@ const SomeCard = (props) => (
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
 
-        <Button variant="primary" as={Link} to={`${props.name}`}>
-          Go somewhere
+        <Button className="float-end" variant="primary" as={Link} to={`${props.name}`}>
+          View this Course
         </Button>
       </Card.Body>
     </Card>

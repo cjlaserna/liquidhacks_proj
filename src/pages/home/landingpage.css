@@ -123,34 +123,42 @@ span.citation a{
   font-family: 'Roboto Condensed', sans-serif;
 }
 #price span:first-of-type{
-  font-size: 5em;
+  font-size: 3.5em;
   display: inline;
 }
 #price span:nth-child(2){
-  font-size: 3em;
+  font-size: 2.5em;
   display: inline;
 }
 
 .price--container .container{
   margin-top: 100px;
 
-  padding-left: 15rem;
-  padding-right: 15rem;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+  padding: 1rem;
 }
 .price--container .container .row .col{
   display: flex;
   justify-content: center;
   flex-direction: column; 
 
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .price--container .container .row .col p{
   margin: 0;
 }
 
+.price--container .container .row .col {
+  display: flex;
+  justify-content: center;
+}
 .price--container .container .row .col:first-of-type{
-  width: 50%;
+  margin-right: 5rem;
 }
 
 .price--container .btn{
@@ -201,4 +209,10 @@ span.citation a{
 
 .contact--container .btn{
   float: right;
+}
+
+@media only screen and (max-width: 1400px) {
+  .price--container .container{
+    width: 100%;
+  }
 }

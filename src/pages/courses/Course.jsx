@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Card, Col, Container, Row, Breadcrumb } from "react-bootstrap";
 import { useParams } from "react-router";
 import "./course.css";
+
+import { Link } from "react-router-dom";
 
 const course = [
   {
@@ -50,8 +52,17 @@ const Course = () => {
     link: "Vrh3ELlhdsA",
   });
   return (
-    <Container className="py-4 ">
-      <h1>{name} Course</h1>
+    <Container className="course__container py-4">
+      <Breadcrumb className="forum--breadcrumbs">
+        <Breadcrumb.Item>
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/courses">Courses</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>{name}</Breadcrumb.Item>
+      </Breadcrumb>
+      <h1 className="heading">{name} Course</h1>
       <Row>
         <Col className="course-col py-4" md={8}>
           <iframe
@@ -81,15 +92,10 @@ export default Course;
 const CourseCard = (props) => (
   <Card
     style={{ width: "100%", height: "200px" }}
-    border="primary"
     className="my-2"
   >
-    <Card.Body>
+    <Card.Body onClick={props.setSelection} className="course-sectionlist-item">
       <Card.Title>{props.title}</Card.Title>
-
-      <Button onClick={props.setSelection} variant="primary">
-        Check it
-      </Button>
     </Card.Body>
   </Card>
 );
